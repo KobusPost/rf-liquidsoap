@@ -3,6 +3,21 @@ let formats.stereo.icecast.libfdk_aac =
     sub_formats=
       [
         (
+          "dab",
+          %ffmpeg(
+            format = "adts",
+            %audio(
+              codec = "libfdk_aac",
+              channels = 2,
+              b = "96k",
+              samplerate = 48000,
+              afterburner = 1,
+              eld_sbr = 1,
+              profile = "aac_he_v2"
+            )
+          )
+        ),
+        (
           "lofi",
           %ffmpeg(
             format = "adts",
@@ -25,6 +40,21 @@ let formats.stereo.icecast.libfdk_aac =
               codec = "libfdk_aac",
               channels = 2,
               b = "96k",
+              samplerate = 48000,
+              afterburner = 1,
+              eld_sbr = 0,
+              profile = "aac_low"
+            )
+          )
+        ),
+        (
+          "urkfm",
+          %ffmpeg(
+            format = "adts",
+            %audio(
+              codec = "libfdk_aac",
+              channels = 2,
+              b = "128k",
               samplerate = 48000,
               afterburner = 1,
               eld_sbr = 0,
