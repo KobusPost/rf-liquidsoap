@@ -29,11 +29,11 @@ services:
     - data_hls:/tmp/
     - data_liquidsoap:/state/
 
-  liquidsoap-geesteliijk:
+  liquidsoap-geestelijk:
     command:
     - /conf/urkfmgeestelijk.liq
     - /scripts/transcoder/00-live.liq
-    container_name: liquidsoap-geesteliijk
+    container_name: liquidsoap-geestelijk
     image: savonet/liquidsoap:v2.2.5
     networks:
     - default
