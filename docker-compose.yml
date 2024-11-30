@@ -92,7 +92,7 @@ services:
     - 8000
     image: libretime/icecast:latest
     ports:
-    - 8000:8000
+    - 8010:8000
 
   # HLS (nginx)
   hls:
@@ -103,7 +103,7 @@ services:
     networks:
     - default
     ports:
-    - 8080:8080/tcp
+    - 8085:8080/tcp
     restart: unless-stopped
     volumes:
     - ./example/nginx/:/etc/nginx/conf.d/:ro
