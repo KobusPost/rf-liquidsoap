@@ -3,8 +3,8 @@ radio_name = "geestelijk"
 # Radio settings
 formats_picker = fun (formats) -> formats.stereo
 aac_encoder = "libfdk_aac"
-harbor_http_port = 7000
-prometheus_server_port = 9001
+harbor_http_port = 7010
+prometheus_server_port = 9011
 liquidsoap_log_level = 3
 
 # SRT inputs configuration
