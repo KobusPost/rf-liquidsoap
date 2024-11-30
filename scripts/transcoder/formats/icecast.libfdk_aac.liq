@@ -48,7 +48,7 @@ let formats.stereo.icecast.libfdk_aac =
           )
         ),
         (
-          "urkfm",
+          "hoog",
           %ffmpeg(
             format = "adts",
             %audio(
@@ -93,7 +93,7 @@ let formats.stereo.icecast.libfdk_aac =
           )
         )
       ],
-    file_extension=".aac"
+    file_extension=".m4a"
   }
 
 let formats.surround.icecast.libfdk_aac =

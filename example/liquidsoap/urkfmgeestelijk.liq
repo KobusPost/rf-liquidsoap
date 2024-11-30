@@ -10,11 +10,8 @@ liquidsoap_log_level = 3
 # SRT inputs configuration
 input_list =
   [
-    {name="studioA_caller1", is_autofallback=true, port=10010, srt_pass=hackme},
-    {name="studioA_caller2", is_autofallback=true, port=10011, srt_pass=hackme},
-    {name="liveset_caller1", is_autofallback=false, port=10014, srt_pass=hackme},
-    {name="liveset_caller2", is_autofallback=false, port=10015, srt_pass=hackme},
-    {name="omroepflevo", is_autofallback=true, port=10016, srt_pass=hackme}
+    {name="GML_Geestelijk", is_autofallback=true, port=10010},
+    {name="Zenlex_Geestelijk", is_autofallback=true, port=10011}
   ]
 livesource_state_path = "/state/#{radio_name}.livesourcestate"
 
@@ -32,4 +29,4 @@ icecast_host = "icecast"
 icecast_port = 8000
 icecast_password = "secret"
 icecast_formats =
-  [("aac", ["dab", "urkfm"]), ("mp3", ["midfi"])]
+  [("aac", ["dab", "hoog"]), ("mp3", ["midfi"])]

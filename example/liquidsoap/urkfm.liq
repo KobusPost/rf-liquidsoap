@@ -1,4 +1,4 @@
-radio_name = "urkfm2"
+radio_name = "urkfm"
 
 # Radio settings
 formats_picker = fun (formats) -> formats.stereo
@@ -10,11 +10,11 @@ liquidsoap_log_level = 3
 # SRT inputs configuration
 input_list =
   [
-    {name="studioA_caller1", is_autofallback=true, port=10000, srt_pass=hackme},
-    {name="studioA_caller2", is_autofallback=true, port=10001, srt_pass=hackme},
-    {name="liveset_caller1", is_autofallback=false, port=10004, srt_pass=hackme},
-    {name="liveset_caller2", is_autofallback=false, port=10005, srt_pass=hackme},
-    {name="omroepflevo", is_autofallback=true, port=10006, srt_pass=hackme}
+    {name="studio_MS01", is_autofallback=true, port=10000},
+    {name="studio_MS03", is_autofallback=true, port=10001},
+    {name="liveset_caller1", is_autofallback=false, port=10002},
+    {name="liveset_caller2", is_autofallback=false, port=10003},
+    {name="omroepflevo", is_autofallback=true, port=10004}
   ]
 livesource_state_path = "/state/#{radio_name}.livesourcestate"
 
@@ -32,4 +32,4 @@ icecast_host = "icecast"
 icecast_port = 8000
 icecast_password = "secret"
 icecast_formats =
-  [("aac", ["dab", "urkfm"]), ("mp3", ["midfi"])]
+  [("aac", ["dab", "hoog"]), ("mp3", ["midfi"])]

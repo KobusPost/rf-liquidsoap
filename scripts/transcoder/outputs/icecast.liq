@@ -20,6 +20,16 @@ def mk_output(source, file_extension, quality, encoder) =
   id = "icecast_#{quality}#{file_extension}"
   clock.assign_new(id=id, [source])
 
+  mountname = 
+    if
+      quality == "midfi"
+    then
+      "#{radio_name}#{file_extension}"
+    else
+      "#{radio_name}-#{quality}#{file_extension}"
+    end
+
+
   output.icecast(
     id=id,
     fallible=true,
@@ -28,7 +38,7 @@ def mk_output(source, file_extension, quality, encoder) =
     icy_metadata=[],
     send_icy_metadata=false,
     password=icecast_password,
-    mount="#{radio_name}-#{quality}#{file_extension}",
+    mount=mountname,
     encoder,
     source
   )

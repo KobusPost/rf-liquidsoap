@@ -15,9 +15,8 @@ scrape_configs:
   scrape_interval: 5s
   static_configs:
   - targets:
-    - liquidsoap-myradio:9001
-    - liquidsoap-myradiosurround:9011
-    - liquidsoap-mystreamer:9021
+    - liquidsoap-urkfm:9001
+    - liquidsoap-geestelijk:9011
 
 - job_name: 'prometheus'
   scrape_interval: 10s

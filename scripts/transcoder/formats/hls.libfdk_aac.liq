@@ -10,7 +10,7 @@ let formats.stereo.hls.libfdk_aac =
           b = "32k",
           samplerate = 48000,
           afterburner = 1,
-          profile = "aac_low"
+          profile = "aac_he_v2"
         )
       )
     ),

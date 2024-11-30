@@ -18,13 +18,11 @@ services:
     ports:
     - 9001:9001/tcp
     - 7000:7000/tcp
-    - 10000:10000/tcp
-    - 10001:10001/tcp
-    - 10002:10002/tcp
-    - 10003:10003/tcp
-    - 10004:10004/tcp
-    - 10005:10005/tcp
-    - 10006:10006/tcp
+    - 10000:10000/udp
+    - 10001:10001/udp
+    - 10002:10002/udp
+    - 10003:10003/udp
+    - 10004:10004/udp
     volumes:
     - ./example/liquidsoap/:/conf/:ro
     - ./scripts/transcoder/:/scripts/transcoder/:ro
@@ -33,7 +31,7 @@ services:
 
   liquidsoap-geesteliijk:
     command:
-    - /conf/urkfmgeesteliijk.liq
+    - /conf/urkfmgeestelijk.liq
     - /scripts/transcoder/00-live.liq
     container_name: liquidsoap-geesteliijk
     image: savonet/liquidsoap:v2.2.5
@@ -43,13 +41,8 @@ services:
     ports:
     - 9011:9011/tcp
     - 7010:7010/tcp
-    - 10010:10010/tcp
-    - 10011:10011/tcp
-    - 10012:10012/tcp
-    - 10013:10013/tcp
-    - 10014:10014/tcp
-    - 10015:10015/tcp
-    - 10016:10016/tcp
+    - 10010:10010/udp
+    - 10011:10011/udp
     volumes:
     - ./example/liquidsoap/:/conf/:ro
     - ./scripts/transcoder/:/scripts/transcoder/:ro
@@ -61,41 +54,20 @@ services:
   ###############
 
   # Feed myradio with an example SRT source (https://modular-station.com/)
-  source-voieA-caller1:
+  source-omroepflevo:
     command:
     - /usr/bin/ffmpeg
     - -hide_banner
     - -re
     - -i
-    - "https://broadcast.modular-station.com/listen/modular_station/radio.aac?id=github.com_radiofrance_rf-liquidsoap"
+    - "https://urk.fm/flevo-live.mp3"
     - -vn
     - -f
     - wav
     - -codec:a
     - pcm_s16le
-    - "srt://liquidsoap-myradio:10000" # voieA_caller1
-    container_name: source-voieA-caller1
-    entrypoint: []
-    image: savonet/liquidsoap:v2.2.5
-    networks:
-    - default
-    restart: unless-stopped
-
-  # Feed myradio with an example SRT source (https://p-node.org/)
-  source-voieB-caller1:
-    command:
-    - /usr/bin/ffmpeg
-    - -hide_banner
-    - -re
-    - -i
-    - "https://stream.p-node.org/pnode.mp3?id=github.com_radiofrance_rf-liquidsoap"
-    - -vn
-    - -f
-    - wav
-    - -codec:a
-    - pcm_s16le
-    - "srt://liquidsoap-myradio:10002" # voieB_caller1
-    container_name: source-voieB-caller1
+    - "srt://liquidsoap-urkfm:10004"
+    container_name: source-omroepflevo
     entrypoint: []
     image: savonet/liquidsoap:v2.2.5
     networks:
